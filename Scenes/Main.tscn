@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxag26wv3sinw"]
+
+[ext_resource type="Script" uid="uid://cuaktd7spbbtv" path="res://Scripts/Main.gd" id="1_grg3l"]
+[ext_resource type="Script" uid="uid://bhpyi3u0cngw1" path="res://Scripts/Car_Movement.gd" id="1_idj7w"]
+[ext_resource type="PackedScene" uid="uid://jy345ih28qlu" path="res://Scenes/Map.tscn" id="5_pbw6q"]
+[ext_resource type="AudioStream" uid="uid://brds53hwln586" path="res://Sounds/engineidle0(2).wav" id="6_v1gob"]
+[ext_resource type="Texture2D" uid="uid://b8gw1b2s1jh7g" path="res://Sprites/CarSprites/YellowCar.png" id="7_50glp"]
+[ext_resource type="PackedScene" uid="uid://dwhyti11tndg4" path="res://Scenes/Timer.tscn" id="11_4kpch"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kln2b"]
+radius = 5.0
+height = 26.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_grg3l")
+
+[node name="Car" type="CharacterBody2D" parent="."]
+top_level = true
+z_index = 17
+position = Vector2(183, 1)
+script = ExtResource("1_idj7w")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Car"]
+position = Vector2(2.11493, 3.84134e-06)
+rotation = 1.5708
+scale = Vector2(0.23939, 0.301657)
+texture = ExtResource("7_50glp")
+
+[node name="Camera" type="Camera2D" parent="Car"]
+zoom = Vector2(3, 3)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Car"]
+position = Vector2(3, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kln2b")
+
+[node name="Timer" parent="." instance=ExtResource("11_4kpch")]
+
+[node name="Map" parent="." instance=ExtResource("5_pbw6q")]
+metadata/_edit_group_ = true
+
+[node name="MotorSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_v1gob")
+autoplay = true

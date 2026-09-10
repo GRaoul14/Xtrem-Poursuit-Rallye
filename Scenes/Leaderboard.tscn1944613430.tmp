@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://c51pve1ird8ot"]
+
+[ext_resource type="Script" uid="uid://oqpksgve0y5s" path="res://Scripts/Leaderboard.gd" id="1"]
+
+[sub_resource type="Theme" id="Theme_j1gah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pbpo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7dnr8"]
+
+[node name="Leaderboard" type="Node2D"]
+script = ExtResource("1")
+
+[node name="OldBoard" type="MarginContainer" parent="."]
+
+[node name="HighScores" type="TextureRect" parent="OldBoard"]
+layout_mode = 2
+
+[node name="Board" type="VBoxContainer" parent="."]
+offset_top = 3.0
+offset_right = 1153.0
+offset_bottom = 647.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="TitleContainer" type="CenterContainer" parent="Board"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Board/TitleContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Leaderboard"
+horizontal_alignment = 1
+
+[node name="MessageContainer" type="CenterContainer" parent="Board"]
+visible = false
+layout_mode = 2
+
+[node name="TextMessage" type="Label" parent="Board/MessageContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "No scores yet!"
+
+[node name="HighScores" type="PanelContainer" parent="Board"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_j1gah")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Board/HighScores"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5pbpo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7dnr8")
+
+[node name="ScoreItemContainer" type="VBoxContainer" parent="Board/HighScores/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 7
+
+[node name="CloseButtonContainer" type="CenterContainer" parent="Board"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="."]
+offset_left = 55.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 78.0
+
+[node name="Label" type="Label" parent="CloseButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 219.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 32
+text = "Close"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

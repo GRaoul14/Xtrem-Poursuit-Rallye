@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://2wy4d8d5av0l"]
+
+[ext_resource type="Texture2D" uid="uid://rbreyslj3u00" path="res://Sprites/Medals/GoldMedal.png" id="1_jqdn1"]
+[ext_resource type="Texture2D" uid="uid://b7pfu0njo5qxl" path="res://Sprites/Medals/SilverMedal.png" id="2_bnqpm"]
+[ext_resource type="Texture2D" uid="uid://cpaeontrnqpxl" path="res://Sprites/Medals/BronzeMedal.png" id="3_bkn7x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bh4sh"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ScoreItem" type="Panel"]
+custom_minimum_size = Vector2(500, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bh4sh")
+
+[node name="PlayerName" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 0
+offset_left = 8.0
+offset_right = 359.0
+offset_bottom = 50.0
+theme_override_font_sizes/normal_font_size = 32
+text = "1. Godzilla"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 1.0
+offset_right = 561.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 32
+text = "             13"
+horizontal_alignment = 2
+
+[node name="GoldIcon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1038.0
+offset_top = 4.0
+offset_right = 1070.0
+offset_bottom = 36.0
+texture = ExtResource("1_jqdn1")
+expand_mode = 4
+
+[node name="SilverIcon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1038.0
+offset_top = 4.0
+offset_right = 1070.0
+offset_bottom = 36.0
+texture = ExtResource("2_bnqpm")
+expand_mode = 4
+
+[node name="BronzeIcon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1038.0
+offset_top = 4.0
+offset_right = 1070.0
+offset_bottom = 36.0
+texture = ExtResource("3_bkn7x")
+expand_mode = 4

@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://clt5v5kluya3e"]
+
+[ext_resource type="Script" uid="uid://b2qeeceryt2qe" path="res://Scripts/control.gd" id="1_sjmnu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjmnu")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 196.0
+offset_right = 610.0
+offset_bottom = 295.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 328.0
+offset_right = 698.0
+offset_bottom = 375.0
+placeholder_text = "ENTER NAME:"
+max_length = 10
+
+[node name="Submit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 398.0
+offset_right = 651.0
+offset_bottom = 431.0
+text = "Submit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Submit" to="." method="_on_submit_pressed"]
