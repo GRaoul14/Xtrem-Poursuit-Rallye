@@ -39,10 +39,10 @@ Map elements:
 
 ## Technical Implementation
 
-Collectible and obstacle objects (e.g. "Stars") are built using:
+Obstacle objects are built using:
 - An `AnimatedSprite2D` child node for the visual animation (via a `SpriteFrames` resource)
 - A `CollisionShape2D` child node to define the interaction zone, detect collisions with
-  the rally car, and trigger the corresponding collect/special effect
+  the rally car.
 
 ## Technologies
 
